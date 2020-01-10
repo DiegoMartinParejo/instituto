@@ -20,7 +20,7 @@ class CreateCentrosTable extends Migration
             $table->string('web', 255)->nullable();
             $table->point('situacion')->nullable();
             $table->bigInteger('coordinador')->unsigned()->nullable();
-            $table->boolean('verficado')->default(false);
+            $table->boolean('verificado')->default(false);
             $table->timestamps();
         });
     }

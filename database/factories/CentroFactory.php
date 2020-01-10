@@ -11,7 +11,7 @@ $factory->define(Centro::class, function (Faker $faker) {
         'nombre' => $faker->company,
         'web' => $faker->url,
         //'situacion' => $faker->,
-        //'coordinador' => $faker->,
+        //'coordinador' => factory(App\User::class),
         'verificado' => $faker->boolean($chanceOfGettingTrue = 80)
     ];
 });
