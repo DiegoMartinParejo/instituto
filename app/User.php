@@ -45,4 +45,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Centro', 'coordinador');
     }
+
+    public function tutorado() {
+        return $this->hasMany('App\Tutorizado', 'tutorado');
+    }
+
+    public function tutor() {
+        return $this->hasMany('App\Tutorizado', 'tutor');
+    }
 }
