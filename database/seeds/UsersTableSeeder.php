@@ -14,22 +14,17 @@ class UsersTableSeeder extends Seeder
         if(env('APP_ENV') != 'production') {
             DB::table('users')->truncate();
             DB::table('centros')->truncate();
-            DB::table('tutorizados')->truncate();
             // Create 3 App\User instances...
             $users = factory(App\User::class, 3)->create()
                 ->each(function ($user) {
                 $user->centros()->save(factory(App\Centro::class)->make());
             });
 
-            $users = factory(App\User::class, 97)->create()
-                ->each(function ($user) {
-                $user->tutorado()->save(factory(App\Tutorizado::class)->make());
-            });
+            //Profesores
+            $users = factory(App\User::class, 97)->create();
 
-            $users = factory(App\User::class, 200)->create()
-                ->each(function ($user) {
-                $user->tutor()->save(factory(App\Tutorizado::class)->make());
-            });
+            //Alumnos
+            $users = factory(App\User::class, 200)->create();
         }
     }
 }
