@@ -23,8 +23,11 @@ class UsersTableSeeder extends Seeder
             //Profesores
             $users = factory(App\User::class, 97)->create();
 
-            //Alumnos
-            $users = factory(App\User::class, 200)->create();
+            // Alumnos
+            $users = factory(App\User::class, 200)->create()
+                ->each(function ($user) {
+                $user->matriculas()->save(factory(App\Matricula::class)->make());
+            });
         }
     }
 }
